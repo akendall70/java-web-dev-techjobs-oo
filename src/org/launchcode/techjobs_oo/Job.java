@@ -5,6 +5,7 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
+    private String value;
     private String name;
     private Employer employer;
     private Location location;
@@ -71,7 +72,7 @@ public class Job {
 
     @Override
     public String toString() {
-        return String.valueOf(id);
+        return value;
     }
 
     @Override
