@@ -70,10 +70,23 @@ public class Job {
         return id;
     }
 
+//    @Override
+//    public String toString() {
+//        return value;
+//    }
+
     @Override
     public String toString() {
-        return value;
+            return "\n" +
+                    "ID: " + this.getId() + "\n" +
+                    "Name: " + this.getName() + "\n" +
+                    "Employer: " + this.getEmployer() + "\n" +
+                    "Location: " + this.getLocation() + "\n" +
+                    "Position Type: " + this.getPositionType() + "\n" +
+                    "Core Competency: " + this.getCoreCompetency() + "\n" +
+                    "\n" ;
     }
+
 
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
@@ -83,13 +96,11 @@ public class Job {
         return getId() == job.getId();
     }
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
+    // TODO: on toString, add 'if field is empty, add "Data not available"
+    //TODO: on toString, add 'if only id is available, add "OOPS! This job does not seem to exist."
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
+
+
+
 }

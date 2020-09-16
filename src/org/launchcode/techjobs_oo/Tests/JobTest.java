@@ -29,7 +29,7 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         Job test_fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        System.out.println(test_fullJob.getEmployer());
+        //System.out.println(test_fullJob.getEmployer());
         assertTrue(test_fullJob.getEmployer() instanceof Employer);
         assertTrue(test_fullJob.getLocation() instanceof Location);
         assertTrue(test_fullJob.getPositionType() instanceof PositionType);
@@ -50,8 +50,18 @@ public class JobTest {
         allTestJob2 = new Job("Ice Cream Maker", new Employer("Oberweis"), new Location("Saint Louis"), new PositionType("Scooper"),new CoreCompetency("Stacker"));
     }
 
+    //tests that two jobs that don't share the same ID are not equal.
     @Test
     public void testJobsForEquality() {
         assertFalse (allTestJob1 == allTestJob2);
+        System.out.println(allTestJob1);
+    }
+
+    @Test
+    public void testOutputToString() {
+    assertEquals(allTestJob1.toString().contains("\n"+"\n"), true);
     }
 }
+
+
+//TODO: test for each of the 4 tests for toString.
