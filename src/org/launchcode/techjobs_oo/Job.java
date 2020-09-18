@@ -1,11 +1,12 @@
 package org.launchcode.techjobs_oo;
 
+
 public class Job {
 
     private int id;
     private static int nextId = 1;
 
-    private String value;
+
     private String name;
     private Employer employer;
     private Location location;
@@ -26,12 +27,14 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+            this.name = name;
     }
 
     public Employer getEmployer() {
@@ -70,21 +73,28 @@ public class Job {
         return id;
     }
 
-//    @Override
-//    public String toString() {
-//        return value;
-//    }
 
     @Override
     public String toString() {
-            return "\n" +
-                    "ID: " + this.getId() + "\n" +
-                    "Name: " + this.getName() + "\n" +
-                    "Employer: " + this.getEmployer() + "\n" +
-                    "Location: " + this.getLocation() + "\n" +
-                    "Position Type: " + this.getPositionType() + "\n" +
-                    "Core Competency: " + this.getCoreCompetency() + "\n" +
-                    "\n" ;
+
+        String returnStatement = "\n" +
+                "ID: " + this.getId() + "\n" +
+                "Name: " + this.getName() + "\n" +
+                "Employer: " + this.getEmployer() + "\n" +
+                "Location: " + this.getLocation() + "\n" +
+                "Position Type: " + this.getPositionType() + "\n" +
+                "Core Competency: " + this.getCoreCompetency() + "\n";
+
+
+        if (this.getEmployer().toString().equals("Data not available") &&
+                this.getName().equals("") &&
+                this.getLocation().toString().equals("Data not available") &&
+                this.getPositionType().toString().equals("Data not available") &&
+                this.getCoreCompetency().toString().equals("Data not available")) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return returnStatement;
+        }
     }
 
 

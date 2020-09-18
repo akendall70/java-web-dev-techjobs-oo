@@ -6,5 +6,8 @@ public class Employer extends JobField{
         super(value);
     }
 
-
+@Override
+    public String toString() {
+        return this.getValue().isEmpty() ? "Data not available" : this.getValue();
+}
 }

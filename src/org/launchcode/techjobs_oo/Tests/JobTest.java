@@ -54,12 +54,47 @@ public class JobTest {
     @Test
     public void testJobsForEquality() {
         assertFalse (allTestJob1 == allTestJob2);
-        System.out.println(allTestJob1);
+        //System.out.println(allTestJob1);
     }
 
+    //tests that the string begins and ends with empty lines
     @Test
     public void testOutputToString() {
-    assertEquals(allTestJob1.toString().contains("\n"+"\n"), true);
+    assertEquals(allTestJob1.toString().startsWith("\n"), true);
+    assertEquals(allTestJob1.toString().endsWith("\n"), true);
+    }
+
+
+    //creates job with one missing field to test
+    Job missingFieldJob;
+    @Before
+    public void createMissingField() {
+        missingFieldJob = new Job("Ice Cream Maker", new Employer(""), new Location("Saint Louis"), new PositionType("Scooper"),new CoreCompetency("Stacker"));
+    }
+
+    //tests that all fields are full and matches correct output.
+    @Test
+    public void testForCorrectStringReturn() {
+        assertEquals("\nID: 2\nName: Ice Cream Maker\nEmployer: Oberweis\nLocation: Saint Louis\nPosition Type: Scooper\nCore Competency: Stacker\n", allTestJob1.toString());
+    }
+
+    //tests that the missing field is replaced with data not available.
+    @Test
+    public void testJobForMissingOutput() {
+        //System.out.println(missingFieldJob);
+        assertEquals("Data not available", missingFieldJob.getEmployer().toString());
+    }
+
+    Job missingAllOptions;
+    @Before
+    public void createEmptyObject() {
+        missingAllOptions = new Job ("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+    }
+
+    //if all fields are empty return that string
+    @Test
+    public void testsForEmptyJob() {
+        assertEquals("OOPS! This job does not seem to exist.", missingAllOptions.toString());
     }
 }
 
